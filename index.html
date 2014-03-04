@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plugin</title>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./plugins/dropdown.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./plugin/showabsolute.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="dropdown.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<form>
+    <select>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <input type="reset"/>
+</form>
+    <script type="text/javascript" charset="utf-8">
+    $('select').dropdown('render', {
+        change: function() {
+            console.log(this.selectedIndex);
+        }
+    }).dropdown('fill', [
+        {
+            text: 'AAA'
+            ,value: 'AAA'
+            ,selected: false
+        }
+        ,{
+            text: 'BBB'
+            ,value: 'BBB'
+            ,selected: true
+        }
+    ]).dropdown('destroy', true);
+    </script>
+</body>
+</html>
