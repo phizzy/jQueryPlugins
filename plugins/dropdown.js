@@ -2,12 +2,13 @@
 /**
  * $('select').dropdown();  默认为render，不传入任何参数
  * $('select').dropdown('render', params);
- * $('select').dropdown('fill', options')
+ * $('select').dropdown('fill', options)
  * $('select').dropdown('destroy', true)
  * @params:
     params = {
         change: function() {}   // change的回调函数
         ,id: '' // 替代元素的id
+        ,className: ''  // 替代元素的class
         ,contentClass: ''   // 替代元素的选中值显示容器class
         ,optionsClass: ''   // 替代元素的列表项容器class
         ,selectedClass: ''  // 替代元素的选中的class
@@ -90,7 +91,7 @@
             this.dropdown('destroy');
             this.empty();
             for (var i=0,l=options.length; i<l; i++) {
-                this.append('<option value="'+options[i].value+'"'+(options[i].selected ? ' selected="selected"' : '')+'>'+options[i].text+'</option>');
+                this.append('<option value="'+(options[i].value===undefined?options[i].text:options[i].value)+'"'+(options[i].selected ? ' selected="selected"' : '')+'>'+options[i].text+'</option>');
             }
             this.dropdown('render');
             return this;
